@@ -1193,6 +1193,8 @@ void serialbegin (int address, int baud) {
   else if (address == 3) Serial3.begin((long)baud*100);
   #elif !defined(_VARIANT_BBC_MICROBIT_)
   if (address == 1) Serial1.begin((long)baud*100);
+  #else
+  if (address == 1) Serial.begin((long)baud*100);
   #endif
   else error(WITHSERIAL, PSTR("port not supported"), number(address));
 }
